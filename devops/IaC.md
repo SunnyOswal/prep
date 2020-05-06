@@ -1,5 +1,5 @@
 # Choosing between Terraform vs. Ansible vs. Puppet  
-![IaCComparison](IaC.png)
+![IaCComparison](https://github.com/SunnyOswal/prep/blob/master/images/IaC.PNG)
 + Configuration Management vs Provisioning
 + Mutable Infrastructure vs Immutable Infrastructure
 + Procedural vs Declarative
