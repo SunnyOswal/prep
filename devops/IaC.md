@@ -2,7 +2,7 @@
 https://rollout.io/blog/immutable-infrastructure/  
 https://medium.com/rigged-ops/a-tale-of-two-terraforms-a-model-for-managing-immutable-and-mutable-infrastructure-fa0f5422c27b
 # Choosing between Terraform vs. Ansible vs. Puppet vs. Chef 
-Some of the tools are going to be a better fit for certain types of tasks.  
+
 **Common Combinations:**  
 + **Provisioning plus configuration management**
      + Terraform and Ansible. You use Terraform to deploy all the underlying infrastructurethen use Ansible to deploy your apps on it.
