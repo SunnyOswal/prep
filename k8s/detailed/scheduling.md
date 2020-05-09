@@ -26,7 +26,7 @@
   + Resource Requests: CPU , MEMORY , DISK
   
  + DaemonSets:
-  +  Like replica set but makes sure each replica is on each node.
-  + If new node added/removed, replica will be added/removed by daemon sets.
-  + Use Case: kube-proxy
+    +  Like replica set but makes sure each replica is on each node.
+    + If new node added/removed, replica will be added/removed by daemon sets.
+    + Use Case: kube-proxy
   
