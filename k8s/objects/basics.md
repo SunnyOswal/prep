@@ -46,3 +46,15 @@
         + Labels/selectors are used to map ports with pods.
     + LoadBalancer: 
         + 
++ ConfigMaps
+    + Manages configurations centrally in the form of key-value pairs and inject them as env variables as part of pod creation.
+    + Stores in plain text so not good for secrets.
+    + 2 phases: Create configmaps and then consuming in pods with below option :
+        + As Env Variables by using "envFrom > configMapRef"
+        + As files in volumes by using "volumes > configMap"
++ Secrets
+    + stored in encoded format.
+    + 2 phases: Create secret and then consuming in pods .
+        + hash logic is used to decode the encoded secret in secret object
+        + consumed via environment variable : "envFrom >secretRef"
+        + consumed via volume files : "volumes > secret"
