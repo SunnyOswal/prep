@@ -36,4 +36,8 @@
             + apiGroups
             + resources
             + verbs
-      + RoleBinding object to link roles with user
+        + RoleBinding object to link roles with user
+      + ClusterRoles (Roles for cluster scoped resources)
+        + Resources are either namespace scoped or cluster scoped.
+        + ClusterRoleBindings
+        
