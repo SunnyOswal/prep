@@ -19,3 +19,14 @@
   + Logic for not pods matching labels is handled by Type of node affinity:
     + requiredDuringSchedulingIgnoredDuringExecution
     + preferredDuringSchedulingIgnoredDuringExecution
+
++ ResourceLimits:
+  + Default limits are set for containers.
+  + CPU Limits is hard limit but memory is soft limit and pods can be scheduled.
+  + Resource Requests: CPU , MEMORY , DISK
+  
+ + DaemonSets:
+  +  Like replica set but makes sure each replica is on each node.
+  + If new node added/removed, replica will be added/removed by daemon sets.
+  + Use Case: kube-proxy
+  
