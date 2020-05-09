@@ -5,7 +5,7 @@
 
 # Secure k8s
 + kube-apiserver should be controlled as it is the first line of defense.
-+ All Communication w ith kube-apiserver should be made with TLS.
++ All Communication with kube-apiserver should be made with TLS.
 + All cluster communication should be secured as well
     + Recommended: Use server/Client certificates for servers/clients.
         + Server Components: kube-apiserver,etcd server,kubekete server.
@@ -41,3 +41,15 @@
         + Resources are either namespace scoped or cluster scoped.
         + ClusterRoleBindings
         
+# Secure Images
++ Image Format: registry/Account/Image
++ Use private registry
++ Create secret of type "docker-resgistry" and consume in "pod > spec > imagePullSecrets"
+
+# Security Contexts
+    + Container contexts will override pod security context
+# Network Security
+    + Default "All allow" configured policy in k8s for pods.
+    + Network policy should be implemented with rules and linked with pods. 
+    + Policy Type: Ingress & Egress
+    + Labels/selectors used to link policies and pods.
