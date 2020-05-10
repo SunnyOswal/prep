@@ -1,5 +1,5 @@
 # AWS EKS ARCHITECTURE
-![EKS ARCHITECTURE]()
+![EKS ARCHITECTURE](https://github.com/SunnyOswal/prep/blob/master/images/eks-arch.JPG)
 
 
 
