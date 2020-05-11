@@ -15,3 +15,7 @@ A Kubernetes cluster uses the **Secret** of **docker-registry** type to authenti
 + **Readiness Probes**: Web applications should always configure a readinessProbe to make sure that the container only gets traffic after a successful startup
 + **Resource Requests**: Always configure resource requests for both CPU and memory. The Kubernetes scheduler and cluster autoscaler need this information in order to make the right decisions.
 + **Resource Limits**: You should configure a resource limit for memory if possible. The memory resource limit will get your container OOMKilled when reaching the limit. 
+
+# Container Network Interface (CNI)
++ CNCF project that consists of a specification and libraries for writing plugins to configure network connectivity of containers and removing allocated resources when the container is deleted.
++ Kubernetes uses CNI as an interface between network providers and Kubernetes pod networking.
