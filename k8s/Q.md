@@ -20,3 +20,4 @@ A Kubernetes cluster uses the **Secret** of **docker-registry** type to authenti
 + CNCF project that consists of a specification and libraries for writing plugins to configure network connectivity of containers and removing allocated resources when the container is deleted.
 + Kubernetes uses CNI as an interface between network providers and Kubernetes pod networking
 + Interface b/w container runtime and network implementation.
++ CNI plugins configures the network automatically.
