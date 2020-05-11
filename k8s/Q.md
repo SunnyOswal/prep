@@ -10,12 +10,6 @@ A Kubernetes cluster uses the **Secret** of **docker-registry** type to authenti
 + **Readiness**: let Kubernetes know when your app is ready to serve traffic.
 + **Liveness**: let Kubernetes know if your app is alive or dead. If you app is alive, then Kubernetes leaves it alone. If your app is dead, Kubernetes removes the Pod and starts a new one to replace it.
 
-# Best practices to run k8s in production
-+ **Number of Replicas**: Always run at least two replicas (three or more are recommended) of your application to survive cluster updates and autoscaling without downtime.
-+ **Readiness Probes**: Web applications should always configure a readinessProbe to make sure that the container only gets traffic after a successful startup
-+ **Resource Requests**: Always configure resource requests for both CPU and memory. The Kubernetes scheduler and cluster autoscaler need this information in order to make the right decisions.
-+ **Resource Limits**: You should configure a resource limit for memory if possible. The memory resource limit will get your container OOMKilled when reaching the limit. 
-
 # Container Network Interface (CNI)
 + CNCF project that consists of a specification and libraries for writing plugins to configure network connectivity of containers and removing allocated resources when the container is deleted.
 + CNI defines set of responsibilities for **container runtimes** and **CNI plugins**.
@@ -23,3 +17,10 @@ A Kubernetes cluster uses the **Secret** of **docker-registry** type to authenti
 + Interface b/w container runtime and network implementation.
 + CNI plugins configures the network automatically.
 
+# Best practices to run k8s in production
++ **Number of Replicas**: Always run at least two replicas (three or more are recommended) of your application to survive cluster updates and autoscaling without downtime.
++ **Readiness Probes**: Web applications should always configure a readinessProbe to make sure that the container only gets traffic after a successful startup
++ **Resource Requests**: Always configure resource requests for both CPU and memory. The Kubernetes scheduler and cluster autoscaler need this information in order to make the right decisions.
++ **Resource Limits**: You should configure a resource limit for memory if possible. The memory resource limit will get your container OOMKilled when reaching the limit.  
+
+![ProdChecklist](https://github.com/SunnyOswal/prep/blob/master/images/k8s-production-checklist.png)
