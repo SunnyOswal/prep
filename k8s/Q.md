@@ -17,6 +17,11 @@ A Kubernetes cluster uses the **Secret** of **docker-registry** type to authenti
 + Interface b/w container runtime and network implementation.
 + CNI plugins configures the network automatically.
 
+
+# Service Mesh Features  
+
+![ServiceMesh](https://github.com/SunnyOswal/prep/blob/master/images/servicemesh.JPG)  
+
 # Best practices to run k8s in production
 + **Number of Replicas**: Always run at least two replicas (three or more are recommended) of your application to survive cluster updates and autoscaling without downtime.
 + **Readiness Probes**: Web applications should always configure a readinessProbe to make sure that the container only gets traffic after a successful startup
