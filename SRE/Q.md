@@ -6,6 +6,22 @@
 probability that the system will meet certain performance standards in yielding correct output for a desired time duration.  
     + The measurement of Reliability is driven by the frequency and impact of failures.
     
+# High Availability can be achieved by ?
++ Prefer regional deploys over global ones
++ Use Blue/Green deployment strategy for production deploys
++ Use deployment windows
++ Ensure automatically triggered deploys are not executed during off-hours or weekends
++ Enable [Chaos Monkey](https://github.com/netflix/chaosmonkey): resiliency tool that helps applications tolerate random instance failures
++ Use (unit, integration, smoke) testing and canary analysis to validate code before it is pushed to production
++ Automate where possible, but use manual intervention where appropriate.
++ Where possible, deploy exactly what you tested to production
++ Regularly Review paging settings
++ Know how to roll back your deploy quickly
++ Fail a deployment when instances are not coming up healthy
++ For automated deployments, notify the team of impending and completed deployments
++ Automate non-typical deployment situations rather than doing one-off manual work
++ Use preconditions to verify expected state
+
 # SLA , SLI & SLO  
 It’s always better to under-promise and overdeliver.  
 
