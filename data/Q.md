@@ -8,3 +8,9 @@
 + Table = Relation
 + Row = Tuple
 + Column = Attribute
+
+# How to check Query Plan for queries ?
++ PostgreSQL (below commands)
+  + EXPLAIN : displays estimated costs.
+  + EXPLAIN ANALYZE : will execute the query. This command displays both estimated and actual costs.
+  + EXPLAIN ANALYZE SELECT * FROM pg_indexes: Analyzing indexes.
