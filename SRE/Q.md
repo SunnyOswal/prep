@@ -6,7 +6,9 @@
 probability that the system will meet certain performance standards in yielding correct output for a desired time duration.  
     + The measurement of Reliability is driven by the frequency and impact of failures.
     
-# SLA , SLI & SLO
+# SLA , SLI & SLO  
+It’s always better to under-promise and overdeliver.  
+
 + **SLA**:
     + **Service Level Agreement** : agreement between provider and client about measurable metrics like uptime, responsiveness, and responsibilities. 
 + **SLI**:
