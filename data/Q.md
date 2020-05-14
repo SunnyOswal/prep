@@ -10,7 +10,7 @@
 + **Key-Value Store**: Data in key-value pair.
     + Redis
 + **Wide Column Store**: store data in tables, rows, and dynamic columns. Wide-column stores provide a lot of flexibility over relational databases because each row is not required to have the same columns.
-    + Cassandra
+    + Cassandra , Azure Tables
 + **Graph** : store data in nodes and edges.
     + Gremlin
 # PostgreSql Terms vs Industry Relational DB Terms
