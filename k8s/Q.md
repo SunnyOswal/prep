@@ -1,3 +1,31 @@
+# Best Practices in k8s Lifecycyle
++ Build Phase
+  + Use minimal base images
+  + Don’t add unnecessary components
+  + Use up-to-date images only
+  + Use an image scanner to identify known vulnerabilities
+  + Integrate security into your CI/CD pipeline
+  + Label non-fixable vulnerabilities
+
++ Deploy Phase
+  + Use namespaces to isolate sensitive workloads
+  + Use Kubernetes network policies to control traffic between pods and clusters
+  + Prevent overly permissive access to secrets
+  + Assess the privileges used by containers
+  + Assess image provenance, including registries
+  + Extend your image scanning to deploy phase
+  + Use labels and annotations appropriately
+  + Enable Kubernetes role-based access control (RBAC)
+
++ Runtime Phase
+  + Leverage contextual information in Kubernetes
+  + Extend vulnerability scanning to running deployments
+  + Use Kubernetes built-in controls when available to tighten security
+  + Monitor network traffic to limit unnecessary or insecure communication
+  + Leverage process whitelisting
+  + Compare and analyze different runtime activity in pods of the same deployments
+  + If breached, scale suspicious pods to zero
+
 # [Pull container image from private registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 A Kubernetes cluster uses the **Secret** of **docker-registry** type to authenticate with a container registry to pull a private image
 
