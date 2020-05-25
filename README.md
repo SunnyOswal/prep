@@ -1,4 +1,5 @@
 # TOC
++ [Application Lifecycle Management](https://github.com/SunnyOswal/prep/tree/master/ALM)
 + [Architecture](https://github.com/SunnyOswal/prep/tree/master/architecture)
 + [Cloud :cloud: ](https://github.com/SunnyOswal/prep/tree/master/cloud)
 + [Data](https://github.com/SunnyOswal/prep/tree/master/data)
