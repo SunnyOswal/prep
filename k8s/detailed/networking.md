@@ -4,3 +4,6 @@
 
 # Network Overlays
 These are used to address container, pod, service and external client connectivity in k8s clusters.
+
+# Network Policies
+feature of k8s that allow ingress & egress to be restricted or enabled by pod and container instance.
