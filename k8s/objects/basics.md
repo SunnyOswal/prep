@@ -16,9 +16,11 @@
     + Used to create replicas/containers.
 + Replica Sets:
     + Used to create replicas/containers.
+    + A selector allows the replica set to identify all the pods running underneath it.
     + "Spec > Selector" is major diff b/w RC and it enables Replicaset to manage pods existings pods/even who were not created by replica set.
     + "Labels" act as a filter for replicset to understand which pods to monitor.
 + Deployments:
+    + Creates a management object one level higher than a replica set. 
     + Supports different kind of updates. like rolling upgrade,etc
     + Supports rollback & pausing .
     + Uses replica set internally.
