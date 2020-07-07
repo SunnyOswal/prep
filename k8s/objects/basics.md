@@ -33,6 +33,7 @@
     + "kube-public" is for exposed resources to public.
 + ResourceQuota:
 + Services:
+    + provides stable networking for pods & enables communication between nodes, pods, and users of your application, both internal and external, to the cluster.
     + enables connectivity between group of pods and external services/DB's. 
     + External > service > Node > Pods
     + NodePort : Creates/maps port to access
