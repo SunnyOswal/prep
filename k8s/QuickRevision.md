@@ -1,3 +1,26 @@
+## ARCH ##
++ **Kubernetes cluster**:highest level of abstraction to start with.
+  + Kubernetes clusters are composed of nodes. The term cluster refers to all the machines collectively and can be thought of as an entire running system.
++ **Nodes**: The machines in the cluster are referred to as nodes.
+  + A node may be a virtual machine or a physical machine.
+  +  Nodes are characterized as worker nodes and master nodes. 
+  + Each worker node includes software to run containers managed by the Kubernetes control plane. 
+  + Control plane itself runs on master notes. 
++ **The control plane**: set of APIs and software that Kubernetes users interact with. 
+  + These APIs and software are collectively referred to as master components. 
+  + The control plane schedules containers onto nodes. 
+  + Think of it from a kernel perspective. The kernel schedules processors onto the CPU according to multiple factors. Certain processes need more or less compute or have different Quality of Service rules. 
+  + Ultimately the scheduler does its best to ensure that every container runs. 
+  + Scheduling in this case refers to the decision process of placing containers onto nodes in accordance with their declared compute requirements. 
++ **Pods** : containers are grouped into Pods.
+  + Pods may include one or more containers.
+  + All containers in a Pod run on the same node.
+  + The Pod is the smallest building block in Kubernetes.
++ **Services** define networking rules for exposing Pods to other Pods or exposing Pods to the public Internet.
++ **Deployments** to manage deploying configuration changes to running Pods and also horizontal scaling.
+
+
+## TOOLS ##
 **Helm** (Kubernetes package manager)
 + You write packages called charts, then you can use the Helm CLI to install and upgrade charts as releases on your cluster.
 + Charts contain all the resources, like services and deployments required to run a particular application.
