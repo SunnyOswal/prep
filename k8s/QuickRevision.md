@@ -51,6 +51,8 @@
    + In addition to providing meaningful identifying information, labels are used to make selections in Kubernetes.
    + For example, you could tell kubectl to get  only resources in the us-west region.
 + **Selector** defines the labels to match pods against.
++ **Namespaces** may be used to isolate users, environments or applications.
+  + You can also use Kubernetes role-based authentication to manage user’s access rights to a resource in a given namespace.
 + **Quality of Service Classes** how kubernetes can schedule pods based on their resource requests. 
   + If the pods didn’t set any resource request. That makes it easier to schedule them because the scheduler doesn’t need to find nodes with the requested amounts of resources.
   + It will just schedule them onto any node that isn’t under pressure or starved for resources. 
@@ -59,6 +61,10 @@
   + Limit is the maximum amount of resources you want the node to ever give the pod. 
   + You can set resource requests and limits for each container. There is also support for requesting amounts local disk by using the ephemeral-storage.
   + The pod will be guaranteed the resources you requested or it won’t be scheduled until those resources are available. 
+
+## BEST PRACTICES ##
++ When you use the latest tag Kubernetes will always pull the image whenever the pod is started. This can introduce bugs if a pod restarts and pulls a new latest version without you realizing it. To prevent always pulling the image and using an existing version if on exists, you can set the imagepullpolicy field to ifnotpresent. It’s useful to know this but in most situations you are better off specifying a specific tag rather than latest. When specific tags are used the default image pull behavior is ifNotPresent.
+
 ## WORKFLOWS ##
 + kubectl create . For pod manifests, the cluster will take the following actions: 
   + selecting a node with available resources for all of the pod’s containers, 
