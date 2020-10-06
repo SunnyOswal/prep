@@ -12,12 +12,53 @@
   + Think of it from a kernel perspective. The kernel schedules processors onto the CPU according to multiple factors. Certain processes need more or less compute or have different Quality of Service rules. 
   + Ultimately the scheduler does its best to ensure that every container runs. 
   + Scheduling in this case refers to the decision process of placing containers onto nodes in accordance with their declared compute requirements. 
-+ **Pods** : containers are grouped into Pods.
++ **Pods** : basic building block in kubernetes
+  + containers are grouped into Pods.
   + Pods may include one or more containers.
   + All containers in a Pod run on the same node.
   + The Pod is the smallest building block in Kubernetes.
+  + All pods share a container network that allows any pod to communicate with any other pod, regardless of the nodes the pods are running on.
+  + Each pod gets a single IP address in the container network.
+  + Because pods include containers, the declaration of a pod includes all of the properties that you would expect for running containers.
+  + These include the container image, any ports you want to publish to allow access into the container, choosing a restart policy to determine if a pod should automatically restart when its container fails, and limits on the cpu and memory resources.
+  + Unfortunately Kubernetes can not update ports on a running pod. So we need to delete the pod and recreate it.
+  + 
+  +
+  + 
+  +
+  + 
+  +
+  + 
+  +
 + **Services** define networking rules for exposing Pods to other Pods or exposing Pods to the public Internet.
 + **Deployments** to manage deploying configuration changes to running Pods and also horizontal scaling.
++ **Manifest files** All of the desired properties are written to a manifest file.
+  + Manifest files are used to describe all kinds of resources in Kubernetes, not only pods. Based on the kind of resource the manifest describes, you will configure different properties. The configuration specific to each kind of resource is referred to as its specification or spec. 
+  + The manifests are sent to the Kubernetes API server where the necessary actions are taken to realize what is described in the manifest.
+  + You will use kubectl to send the manifest to the API server. 
+  + All manifests have the same top-level keys: api version, kind, and metadata followed by the spec.
+  + Kubernetes supports multiple api versions. V1 is the core api version containing many of the most common resources such as pods and nodes.
+  + Kind indicates what the resource is. 
+  + Metadata includes information relevant to the resource and can help identify resources. The minimum amount of metadata is a name . Names must be unique within a Kubernetes namespace.
+  + Spec is the specification for the declared kind and must match what is expected by the defined api version, for example the spec can change between the beta and the generally available API version of a resource. 
+  + The pod spec defines the containers in the pod. The minimum required field is a single container which must declare its image and name.
++ **Labels** are key-value pairs that identify resource attributes, for example the application tier whether it is front-end or backend, or a region such as us-east or us-west.
+   + In addition to providing meaningful identifying information, labels are used to make selections in Kubernetes.
+   + For example, you could tell kubectl to get  only resources in the us-west region.
++ **Quality of Service Classes** how kubernetes can schedule pods based on their resource requests. 
+  + If the pods didn’t set any resource request. That makes it easier to schedule them because the scheduler doesn’t need to find nodes with the requested amounts of resources.
+  + It will just schedule them onto any node that isn’t under pressure or starved for resources. 
+  + However, these pods will be the first to be evicted if a node becomes under pressure and needs to free up resources.
+  + Request sets the minimum required resources to schedule the pod onto a node 
+  + Limit is the maximum amount of resources you want the node to ever give the pod. 
+  + You can set resource requests and limits for each container. There is also support for requesting amounts local disk by using the ephemeral-storage.
+  + The pod will be guaranteed the resources you requested or it won’t be scheduled until those resources are available. 
+## WORKFLOWS ##
++ kubectl create . For pod manifests, the cluster will take the following actions: 
+  + selecting a node with available resources for all of the pod’s containers, 
+  + scheduling the pod to that node, 
+  + the node then downloads the pod’s container images
+  + And runs the containers.
 
 
 ## TOOLS ##
