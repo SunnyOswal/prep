@@ -22,15 +22,20 @@
   + Because pods include containers, the declaration of a pod includes all of the properties that you would expect for running containers.
   + These include the container image, any ports you want to publish to allow access into the container, choosing a restart policy to determine if a pod should automatically restart when its container fails, and limits on the cpu and memory resources.
   + Unfortunately Kubernetes can not update ports on a running pod. So we need to delete the pod and recreate it.
-  + 
-  +
-  + 
-  +
-  + 
-  +
-  + 
-  +
+  + Once the pod is rescheduled it will be assigned an IP address from the available pool of addresses and not necessarily the same IP address it had before.
 + **Services** define networking rules for exposing Pods to other Pods or exposing Pods to the public Internet.
+  + You can declare a service to access a group of pods using labels.
+  + Clients can access the service at a fixed address and the service’s networking rules will direct client requests to a pod in the selected group of pods.  
+  + The service will also distribute the requests across the pods to balance the load.
+  + Public service (LOAD BALANCER) will also be given a static IP address and port by Kubernetes that will allow us to access the service from outside of the container network and even outside of the cluster.
+  + Services must also define port mappings.
+  + NodePort allocates a port for this service on each node in the cluster. 
+  + By doing this you can send a request to any node in the cluster on the designated port and be able to reach the service. 
+  + The designated port will be chosen from the set of available ports on the nodes, unless you specifiy a nodeport as part of the specs ports.
+  + Usually it is better to let Kubernetes choose the node port from the available ports to avoid the chance of your specified port already being taken. That would cause the service will fail to create. 
+  + Kubernetes automatically allocated a port in the port range allocated for node ports which is commonly port numbers between 30000 and 32767. 
+  + Kubernetes automatically adds and removes the endpoints as matching pods are created and deleted.
+  +
 + **Deployments** to manage deploying configuration changes to running Pods and also horizontal scaling.
 + **Manifest files** All of the desired properties are written to a manifest file.
   + Manifest files are used to describe all kinds of resources in Kubernetes, not only pods. Based on the kind of resource the manifest describes, you will configure different properties. The configuration specific to each kind of resource is referred to as its specification or spec. 
@@ -45,6 +50,7 @@
 + **Labels** are key-value pairs that identify resource attributes, for example the application tier whether it is front-end or backend, or a region such as us-east or us-west.
    + In addition to providing meaningful identifying information, labels are used to make selections in Kubernetes.
    + For example, you could tell kubectl to get  only resources in the us-west region.
++ **Selector** defines the labels to match pods against.
 + **Quality of Service Classes** how kubernetes can schedule pods based on their resource requests. 
   + If the pods didn’t set any resource request. That makes it easier to schedule them because the scheduler doesn’t need to find nodes with the requested amounts of resources.
   + It will just schedule them onto any node that isn’t under pressure or starved for resources. 
